@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gestion des Contacts</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 30px;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            width: 95%;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        input {
+            padding: 10px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button,
+        a {
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 15px;
+            display: inline-block;
+        }
+
+        .add {
+            background-color: #27ae60;
+        }
+
+        .search {
+            background-color: #3498db;
+        }
+
+        .edit {
+            background-color: #f39c12;
+        }
+
+        .delete {
+            background-color: #e74c3c;
+        }
+
+        .export {
+            background-color: #2980b9;
+        }
+
+        .logout {
+            background-color: #c0392b;
+        }
+
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .buttons-top {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📒 Gestion des Contacts</h1>
+
+    <!-- FLASH MESSAGE -->
+
+    {% with messages = get_flashed_messages() %}
+
+        {% if messages %}
+
+            {% for message in messages %}
+
+                <div
+                    class="alert alert-success"
+                    role="alert"
+                >
+                    {{ message }}
+                </div>
+
+            {% endfor %}
+
+        {% endif %}
+
+    {% endwith %}
+
+    <!-- RECHERCHE + AJOUT -->
+
+    <div class="top">
+
+        <form method="GET" action="/">
+
+            <input
+                type="text"
+                name="search"
+                placeholder="Rechercher..."
+                value="{{ search }}"
+            >
+
+            <button class="search" type="submit">
+                Rechercher
+            </button>
+
+        </form>
+
+        <a class="add" href="/add">
+            Ajouter un contact
+        </a>
+
+    </div>
+
+    <!-- EXPORT + LOGOUT -->
+
+    <div class="buttons-top">
+
+        <a class="export" href="/export">
+            📤 Export CSV
+        </a>
+
+        <a class="logout" href="/logout">
+            🚪 Logout
+        </a>
+
+    </div>
+
+    <!-- TABLE -->
+
+    <table>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Nom</th>
+
+            <th>Email</th>
+
+            <th>Téléphone</th>
+
+            <th>Catégorie</th>
+
+            <th>Adresse</th>
+
+            <th>Fonction</th>
+
+            <th>Entreprise</th>
+
+            <th>Actions</th>
+
+        </tr>
+
+        {% for contact in contacts %}
+
+        <tr>
+
+            <td>{{ contact["id"] }}</td>
+
+            <td>{{ contact["nom"] }}</td>
+
+            <td>{{ contact["email"] }}</td>
+
+            <td>{{ contact["telephone"] }}</td>
+
+            <td>{{ contact["categorie"] }}</td>
+
+            <td>{{ contact["adresse"] }}</td>
+
+            <td>{{ contact["fonction"] }}</td>
+
+            <td>{{ contact["entreprise"] }}</td>
+
+            <td>
+
+                <div class="actions">
+
+                    <!-- MODIFIER -->
+
+                    <a
+                       class="edit"
+                       href="/edit/{{ contact['id'] }}"
+                    >
+                        Modifier
+                    </a>
+
+                    <!-- SUPPRIMER -->
+
+                    <a
+                       class="delete"
+                       href="/delete/{{ contact['id'] }}"
+                    >
+                        Supprimer
+                    </a>
+
+                    <!-- EMAIL -->
+
+                    <a
+                       style="
+                       background:#3498db;
+                       color:white;
+                       padding:6px 10px;
+                       border-radius:5px;
+                       text-decoration:none;
+                       "
+                       href="/email/{{ contact['id'] }}"
+                    >
+                       Email
+                    </a>
+
+                    <!-- WHATSAPP -->
+
+                    <a
+                       style="
+                       background:#27ae60;
+                       color:white;
+                       padding:6px 10px;
+                       border-radius:5px;
+                       text-decoration:none;
+                       "
+                       href="/whatsapp/{{ contact['id'] }}"
+                    >
+                       WhatsApp
+                    </a>
+                    <a
+                        style="
+                        background:#8e44ad;
+                        color:white;
+                        padding:6px 10px;
+                        border-radius:5px;
+                        text-decoration:none;
+                        "
+                        href="/rdv/{{ contact['id'] }}"
+                        >
+                        RDV
+                    </a>
+
+                </div>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+
+</html>
