@@ -19,4 +19,4 @@ class Contact:
         nom, email, numtele = ligne.strip().split(";")
         return Contact(nom, email, numtele)
     
-    # print("Ajout contact")
+    #ooo
