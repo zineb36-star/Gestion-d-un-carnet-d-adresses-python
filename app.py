@@ -14,7 +14,7 @@ app.secret_key = "secret123"
 # ==========================
 # DATABASE
 # ==========================
-
+ 
 def get_connection():
 
     conn = sqlite3.connect("contacts.db")

@@ -73,7 +73,7 @@ class Database:
                 "INSERT INTO admins(username,password) VALUES(?,?)",
                 ("admin", "admin123")
             )
-
+ 
             self.conn.commit()
 
     # ==========================
