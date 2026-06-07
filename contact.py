@@ -6,8 +6,7 @@ class Contact:
         assert isinstance(nom, str) and len(nom)>0, "Nom invalide"
         assert isinstance(email, str) and re.match(r'^[\w\.-]+@[\w\.-]+\.\w+$', email), "Email invalide"
         assert isinstance(numtele, str) and numtele.isdigit() and len(numtele) >= 10, "Téléphone invalide"
-        #assert isinstance(numtele, str) and numtele.isdigit() and len(numtele) >= 10
-        #
+        #assert isinstance(numtele, str) and numtele.isdigit() and len(numtele) >= 10, "Téléphone invalide"
         self.nom = nom
         self.email = email
         self.numtele = numtele
