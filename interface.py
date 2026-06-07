@@ -152,10 +152,9 @@ scrollbar = ttk.Scrollbar(
 scrollbar.pack(side=tk.RIGHT, fill="y")
 
 tree.configure(yscrollcommand=scrollbar.set)
-
 # =========================
 # FORMULAIRE
-# ==========================
+# =========================
 
 frame_form = ttk.LabelFrame(
     root,
@@ -201,10 +200,10 @@ entry_numtele = ttk.Entry(frame_form)
 
 entry_numtele.grid(row=2, column=1)
 
-# ==========================
+# ===========================
 # BOUTONS
-# ==========================
-
+# ===========================
+#Supprimer
 frame_buttons = ttk.Frame(root)
 
 frame_buttons.pack(pady=10)

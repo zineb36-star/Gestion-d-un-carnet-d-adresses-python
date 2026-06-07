@@ -10,9 +10,9 @@ from email.mime.multipart import MIMEMultipart
 app = Flask(__name__)
 
 app.secret_key = "secret123"
-
+# routes 
 # ==========================
-# DATABASE
+# DATABASE 
 # ==========================
  
 def get_connection():

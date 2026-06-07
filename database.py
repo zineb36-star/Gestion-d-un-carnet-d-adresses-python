@@ -12,9 +12,9 @@ class Database:
 
         self.create_tables()
 
-    # ==========================
+    # ========================
     # TABLES
-    # ==========================
+    # ========================
 
     def create_tables(self):
 
@@ -94,7 +94,7 @@ class Database:
     # ==========================
     # AJOUT CONTACT SQLITE
     # ==========================
-
+    # AJOUT CONTACT SQLITE
     def add_contact(self, nom, email, telephone):
 
         try:
