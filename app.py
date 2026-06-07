@@ -8,7 +8,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 app = Flask(__name__)
-
+ 
 app.secret_key = "secret123"
 # routes 
 # ==========================
