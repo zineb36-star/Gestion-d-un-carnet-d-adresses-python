@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, flash
+from   flask import Flask, render_template, request, redirect, session, flash
 import sqlite3
 import csv
 import smtplib
@@ -14,7 +14,7 @@ app.secret_key = "secret123"
 # ==========================
 # DATABASE 
 # ==========================
-
+ 
 def get_connection():
 
     conn = sqlite3.connect("contacts.db")
