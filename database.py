@@ -74,7 +74,7 @@ class Database:
                 ("admin", "admin123")
             )
 
-            self.conn.commit()
+            self.conn.commit() 
     # ==========================
     # LOGIN
     # ==========================
