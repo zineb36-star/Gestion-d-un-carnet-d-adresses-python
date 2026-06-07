@@ -145,7 +145,7 @@ tree.pack(side=tk.LEFT)
 
 scrollbar = ttk.Scrollbar(
     frame_table,
-    orient="vertical", 
+    orient="vertical",  
     command=tree.yview
 )
 
