@@ -13,7 +13,7 @@ class Auth:
 
             self.create_default_admin()
 
-    # hachage mot de passe
+    # hachage mot de passe 
     def hash_password(self, password):
 
         return hashlib.sha256(
