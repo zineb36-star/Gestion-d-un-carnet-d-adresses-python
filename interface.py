@@ -151,7 +151,7 @@ scrollbar = ttk.Scrollbar(
      
 scrollbar.pack(side=tk.RIGHT, fill="y")
 
-tree.configure(yscrollcommand=scrollbar.set)
+tree.configure(yscrollcommand=scrollbar.set)  
 # =========================
 # FORMULAIRE
 # =========================
