@@ -8,7 +8,7 @@ class Auth:
 
         self.filename = "users.txt"
 
-        # créer admin par défaut
+        # créer admin par défaut 
         if not os.path.exists(self.filename):
 
             self.create_default_admin()
