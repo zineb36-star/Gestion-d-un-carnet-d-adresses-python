@@ -143,7 +143,7 @@ for col in columns:
 
 tree.pack(side=tk.LEFT)
 
-scrollbar = ttk.Scrollbar(
+scrollbar = ttk.Scrollbar( 
     frame_table,
     orient="vertical",  
     command=tree.yview
