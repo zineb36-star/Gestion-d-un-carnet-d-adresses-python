@@ -147,7 +147,7 @@ scrollbar = ttk.Scrollbar(
     frame_table,
     orient="vertical",  
     command=tree.yview
-)     
+)      
   
 scrollbar.pack(side=tk.RIGHT, fill="y")
 
