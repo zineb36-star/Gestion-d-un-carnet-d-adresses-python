@@ -9,7 +9,7 @@ class Contact:
         #assert isinstance(numtele, str) and numtele.isdigit() and len(numtele) >= 10
         
         self.nom = nom 
-        self.email = email 
+        self.email = email  
         self.numtele = numtele
         
     def __str__(self):
