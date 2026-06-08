@@ -148,7 +148,7 @@ scrollbar = ttk.Scrollbar(
     orient="vertical",  
     command=tree.yview
 )      
-  
+   
 scrollbar.pack(side=tk.RIGHT, fill="y")
 
 tree.configure(yscrollcommand=scrollbar.set)
