@@ -3,11 +3,11 @@ import sqlite3
 import csv
 import smtplib
 import urllib.parse
-                     
+                       
 from email.mime.text import MIMEText 
 from email.mime.multipart import MIMEMultipart
 
-app = Flask(__name__)
+app = Flask(__name__)  
  
 app.secret_key = "secret123"
 # routes 
